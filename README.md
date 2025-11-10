@@ -5,6 +5,8 @@ Two small command‑line utilities for transfering BASIC programs to Epson HX‑
 - **hx20tape** — encode an ASCII or tokenized BASIC source file as an HX‑20 WAV “tape”.  
 - **hx20tokenizer** — tokenize ASCII BASIC to HX‑20 binary format, or detokenize a tokenized HX‑20 BASIC file back to ASCII.
 
+A big thank you to the following 2 project for providing a lot of useful information - especially because the "Epson HX_20 Software Reference Manual" seems to leave out some vital informations in regards to the tape format: [hxtape](https://hxtape.sourceforge.net) and [nerdprojects](https://github.com/nerdprojects/epson-hx20-software/tree/main)
+
 ## Build
 
 You need a C++17 compiler (GCC, Clang, or MSVC). On Unix-like systems:
@@ -59,6 +61,7 @@ hx20tape -i <input.bas> -o <output.wav> [-n <name>] [-t <type>] [-a <level>] [-d
 **Notes**
 
 - The tool ensures CRLF line endings in the encoded content.
+- Autodetect if input is tokenized or pure ascii.
 - Blocks are written with synchronization, preamble/postamble, CRC (CRC‑Kermit), and short inter‑block gaps.
 - The program name is padded/truncated to 8 chars.
 
