@@ -86,7 +86,7 @@ hx20tokenizer -i <input> -o <output>
 ./hx20tokenizer -i game.bas -o game.txt
 ```
 
-## Kknown bugs
+## Known bugs
 - Tokenized programs are recognized but often yields a "BD ERROR" in the end. Just stick to pure ASCII programs
 - Loading short programs might require manual stop. Just press BREAK when the wav file is finished playing.  
 
@@ -97,3 +97,6 @@ hx20tokenizer -i <input> -o <output>
 
 ## License
 MIT 
+
+## A note on AI
+This program is a co-creation between me and an AI. I can't tell what's me and what's AI as we've quarreled ever so much about how to do stuff and how to understand what's actually going on and why some things may work in theory but not in real use.

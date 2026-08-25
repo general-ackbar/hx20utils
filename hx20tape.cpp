@@ -555,7 +555,7 @@ int main(int argc, char* argv[]) {
     
 
     int opt;
-    while ((opt = getopt(argc, argv, ":i:o:n:a:dh")) != -1) {
+    while ((opt = getopt(argc, argv, ":i:o:n:a:dhb")) != -1) {
         switch (opt) {
             case 'i':
                 inputFile = optarg ? std::string(optarg) : "";
@@ -566,6 +566,11 @@ int main(int argc, char* argv[]) {
             case 'n':
                 programName = optarg ? std::string(optarg) : programName;
                 break;
+                
+            case 'b':
+                fileType = BasicType::BINARY;
+                break;
+
 //            case 't':
 //                fileType = optarg ? std::string(optarg) : fileType;
 //                break;
