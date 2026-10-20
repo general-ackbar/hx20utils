@@ -10,18 +10,15 @@
 #   make install    # install to $(PREFIX)/bin (default /usr/local)
 #   make clean
 #
-# Note on std::filesystem:
-#   On very old GCC (<= 8), you may need to link with -lstdc++fs.
-#   If you get unresolved filesystem symbols, build with:
-#       make FS_LIB=-lstdc++fs
+# Plain C++11 (no std::filesystem), so GCC 5 / Ubuntu 16.04 can build it.
 #
 # Override variables on the command line if needed, e.g.:
 #   make CXX=clang++ CXXFLAGS='-std=c++20 -O3 -march=native'
 #
 CXX       ?= g++
-CXXFLAGS  ?= -std=c++17 -O2 -Wall -Wextra -pedantic
+CXXFLAGS  ?= -std=c++11 -O2 -Wall -Wextra -pedantic
 LDFLAGS   ?=
-LDLIBS    ?= $(FS_LIB)
+LDLIBS    ?=
 
 # Installation prefix
 PREFIX    ?= /usr/local

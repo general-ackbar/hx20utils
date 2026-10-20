@@ -1,3 +1,5 @@
+*.bas
+*.txt
 # Prerequisites
 *.d
 hx20-img2bas_old.cpp

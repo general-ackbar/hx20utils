@@ -9,21 +9,14 @@ A big thank you to the following 2 project for providing a lot of useful informa
 
 ## Build
 
-You need a C++17 compiler (GCC, Clang, or MSVC). On Unix-like systems:
+You need a C++11 compiler (GCC 4.8+/5, Clang, or MSVC), so it also builds on old
+distributions such as Ubuntu 16.04 / Linux Mint 18. On Unix-like systems:
 
 ```bash
 make
 ```
 
 This produces two binaries in the current directory: `hx20tape` and `hx20tokenizer`.
-
-### Filesystem link note
-
-If you see unresolved `std::filesystem` symbols on older GCC (<= 8), link with `-lstdc++fs`:
-
-```bash
-make FS_LIB=-lstdc++fs
-```
 
 ### Install
 
@@ -93,7 +86,7 @@ hx20tokenizer -i <input> -o <output>
 ## Platform notes
 
 - **Linux/macOS**: build with `make`.  
-- **Windows**: build with MSYS2/MinGW (`pacman -S mingw-w64-x86_64-gcc make`) or with Visual Studio by creating a project that uses C++17.
+- **Windows**: build with MSYS2/MinGW (`pacman -S mingw-w64-x86_64-gcc make`) or with Visual Studio by creating a project that uses C++11 or later.
 
 ## License
 MIT 

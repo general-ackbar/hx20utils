@@ -5,9 +5,8 @@
 #include <cstdint>
 #include <ctime>
 #include <algorithm>
-#include <filesystem>
+#include <string>
 #include <unistd.h>
-namespace fs = std::filesystem;
 
 #define KERMIT true
 //#define DEBUG true
@@ -602,10 +601,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     if (outputFile.empty()) {
-        fs::path p(inputFile);
-        outputFile = p.stem().string() + ".wav";
+        // Same as std::filesystem::path::stem(), kept C++11 for GCC 5
+        std::string stem = inputFile.substr(inputFile.find_last_of("/\\") + 1);
+        std::string::size_type dot = stem.find_last_of('.');
+        if (dot != std::string::npos && dot > 0 && stem != "..")
+            stem.erase(dot);
+        outputFile = stem + ".wav";
     }
-    
+
 
     // Convert to uppercase and pad/truncate
     std::transform(programName.begin(), programName.end(),
